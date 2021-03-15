@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500');
+
+
+
+:root {
+	--wait-color: #26A69A;
+	--check-in-color: #66BB6A;
+	--check-out-color: #FF7043;
+	--done-color: #29B6F6;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	position: relative;
+	font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+	font-weight: 300;
+}
+
+
+#video-container {
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	height: 100%;
+	transform: translate(-50%, 0);
+
+
+}
+
+#camera-stream {
+	display: inline-block;
+
+	height: 100%;
+
+}
+
+
+
+
+/** Action button stuff **/
+
+.action-cancel {
+	display: block;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+
+}
+
+.action-button {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 1em 0;
+	text-align: center;
+	color: white;
+	font-size: 3em;
+	z-index: 2;
+}
+
+
+.action-waiting {
+	background-color: var(--wait-color);
+}
+
+.action-check-in {
+	background-color: var(--check-in-color);
+}
+
+.action-check-out {
+	background-color: var(--check-out-color);
+}
+
+.action-done {
+	background-color: var(--done-color);
+}
+
+/** Name label stuff **/
+
+.name-label {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 1em 0;
+	font-size: 6em;
+	background-color: white;
+	color: black;
+	z-index: 2;
+	text-align: center;
+}
+
+.name-label-name {
+	font-weight: 500;
+}
+
+.name-label-checkout {
+	margin-top: 0.1em;
+	font-size: 0.9em;
+	color: #000;
+	text-align: center;
+
+}
+
+/** Error stuff **/
+
+.popup,.popup-success {
+	display: none;
+	background-color: white;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 20em;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 2;
+}
+
+.error {
+	color: #f55;
+}
+
+.success {
+	color: #006400;
+}
+
+.content-wrapper {
+	padding: 0.5em;
+}
+
+
+.button {
+	margin: 0;
+	width: 100%;
+	color: #5af;
+	border-top: 2px solid #5af;
+	font-size: 2em;
+	text-align: center;
+	padding: 0.5em 0;
+}
+
+.button:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+
+
+@media only screen and (max-width: 1200px) {
+	.popup, .popup-success {
+		min-width: 90%;
+		min-height: 30em;
+	}
+
+	.error, .success {
+		font-size: 3em;
+	}
+
+	#error-desc,
+	#success-desc {
+		font-size: 2em;
+	}
+
+	.button {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 4em;
+	}
+
+	.button * {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+
+
+
+}
+
+
+#output-canvas {
+	display: none;
+}
+.qpb-container {
+	text-align: center;
+	margin-top: 1em;
+}
+
+.qr-progress-bar {
+	display: inline-block;
+	width: 90%;
+	max-width: 30em;
+	height: 2.5em;
+
+	padding: 0;
+	margin: 0;
+}
+
+.checked-in-bar, .checked-out-bar {
+	display: inline-block;
+
+	height: 100%;
+	position: relative;
+
+}
+
+.checked-in-bar {
+	float: left;
+	background-color: #5f5;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.checked-out-bar {
+	float: right;
+	background-color: #f55;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.checked-count {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 2em;
+}
